@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Andrei — AI Operations для онлайн-курсов в EU</title>
+<meta name="description" content="Автоматизирую онбординг, контент и поддержку для русскоязычных курсов и мастермайндов в EU. Setup €2,500 + €1,800/мес." />
+<style>
+  :root {
+    --bg: #0a0a0a;
+    --bg-2: #131313;
+    --fg: #f5f5f5;
+    --muted: #9a9a9a;
+    --accent: #d4ff5b;
+    --border: #1f1f1f;
+    --border-strong: #2a2a2a;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body {
+    background: var(--bg);
+    color: var(--fg);
+    font-family: -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", Roboto, sans-serif;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: var(--fg); text-decoration: none; }
+  .wrap { max-width: 760px; margin: 0 auto; padding: 80px 24px 120px; }
+
+  /* HERO */
+  .hero { padding: 40px 0 56px; border-bottom: 1px solid var(--border); }
+  .pill {
+    display: inline-block;
+    font-size: 12px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--accent);
+    border: 1px solid var(--border-strong);
+    padding: 6px 12px;
+    border-radius: 999px;
+    margin-bottom: 28px;
+  }
+  h1 {
+    font-size: clamp(36px, 5vw, 56px);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    margin-bottom: 24px;
+    line-height: 1.1;
+  }
+  .lead {
+    font-size: 19px;
+    color: var(--muted);
+    max-width: 600px;
+    margin-bottom: 36px;
+  }
+  .cta {
+    display: inline-block;
+    background: var(--accent);
+    color: #0a0a0a;
+    font-weight: 600;
+    padding: 14px 26px;
+    border-radius: 8px;
+    font-size: 16px;
+    transition: transform 0.15s ease;
+  }
+  .cta:hover { transform: translateY(-1px); }
+  .cta-meta {
+    display: inline-block;
+    margin-left: 14px;
+    color: var(--muted);
+    font-size: 14px;
+  }
+
+  /* SECTIONS */
+  section { padding: 56px 0; border-bottom: 1px solid var(--border); }
+  section:last-of-type { border-bottom: none; }
+  h2 {
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--muted);
+    margin-bottom: 28px;
+    font-weight: 600;
+  }
+  h3 {
+    font-size: 22px;
+    font-weight: 600;
+    margin-bottom: 8px;
+    letter-spacing: -0.01em;
+  }
+  p { color: var(--muted); }
+
+  /* SERVICES */
+  .service {
+    padding: 24px 0;
+    border-top: 1px solid var(--border);
+  }
+  .service:first-child { border-top: none; padding-top: 0; }
+  .service-emoji { font-size: 22px; margin-bottom: 8px; }
+
+  /* CASES */
+  .case {
+    padding: 24px 0;
+    border-top: 1px solid var(--border);
+  }
+  .case:first-child { border-top: none; padding-top: 0; }
+  .case-tag {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--accent);
+    margin-bottom: 6px;
+  }
+
+  /* PRICING */
+  .price-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+  @media (max-width: 600px) {
+    .price-grid { grid-template-columns: 1fr; }
+  }
+  .price-card {
+    border: 1px solid var(--border-strong);
+    border-radius: 12px;
+    padding: 28px 24px;
+    background: var(--bg-2);
+  }
+  .price-label {
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+    margin-bottom: 8px;
+  }
+  .price-amount {
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: 6px;
+    letter-spacing: -0.02em;
+  }
+  .price-sub {
+    font-size: 14px;
+    color: var(--muted);
+    margin-bottom: 18px;
+  }
+  .price-card ul {
+    list-style: none;
+    font-size: 14px;
+    color: var(--muted);
+  }
+  .price-card li {
+    padding: 6px 0;
+    padding-left: 18px;
+    position: relative;
+  }
+  .price-card li:before {
+    content: "→";
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+  }
+
+  /* FAQ-ish */
+  .why-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px 32px;
+  }
+  @media (max-width: 600px) {
+    .why-grid { grid-template-columns: 1fr; }
+  }
+  .why h3 {
+    font-size: 18px;
+    margin-bottom: 6px;
+  }
+
+  /* FOOTER */
+  footer {
+    padding: 40px 0 0;
+    color: var(--muted);
+    font-size: 14px;
+    text-align: center;
+  }
+  footer a { color: var(--accent); }
+
+  /* FINAL CTA */
+  .final {
+    text-align: center;
+    padding: 80px 0;
+    border-bottom: none;
+  }
+  .final h2 {
+    font-size: 28px;
+    text-transform: none;
+    letter-spacing: -0.01em;
+    color: var(--fg);
+    margin-bottom: 16px;
+    font-weight: 600;
+  }
+  .final p { margin-bottom: 28px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="pill">AI Operations · EU · RU/UK/EN</div>
+    <h1>Курс растёт. Ты сжигаешься. Я это исправлю.</h1>
+    <p class="lead">
+      Я помогаю русскоязычным основателям онлайн-курсов и мастермайндов в EU
+      автоматизировать онбординг, контент и поддержку через AI —
+      чтобы ты возвращал себе 20-30 часов в неделю на то, ради чего
+      ты вообще запустил курс.
+    </p>
+    <a class="cta" href="https://cal.com/andrei" target="_blank">Записаться на 30-мин разбор →</a>
+    <span class="cta-meta">бесплатно · без обязательств</span>
+  </section>
+
+  <!-- WHY -->
+  <section>
+    <h2>Зачем это твоему курсу</h2>
+    <div class="why-grid">
+      <div class="why">
+        <h3>20-40 часов в месяц</h3>
+        <p>Ровно столько ты или твой ассистент тратите на повторяющиеся задачи в комьюнити. AI забирает 70-80% этого.</p>
+      </div>
+      <div class="why">
+        <h3>+20-30% retention</h3>
+        <p>Студенты доходят до конца курса чаще, когда онбординг чёткий, поддержка мгновенная, контент стабильный.</p>
+      </div>
+      <div class="why">
+        <h3>Окупится за 2-3 месяца</h3>
+        <p>€1,800/мес дешевле любого junior-ассистента в EU и работает 24/7.</p>
+      </div>
+      <div class="why">
+        <h3>Ниша знакома</h3>
+        <p>Год опыта внутри AI-стартапа Quanta Tech как Community & Growth. Знаю что работает в твоей нише.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section>
+    <h2>Что я делаю для твоего курса</h2>
+
+    <div class="service">
+      <div class="service-emoji">🤖</div>
+      <h3>AI-онбординг новых студентов</h3>
+      <p>Новые получают приветствие, доступы и инструкции через бот за 30 секунд после оплаты. Без твоего участия.</p>
+    </div>
+
+    <div class="service">
+      <div class="service-emoji">✍️</div>
+      <h3>Контент-машина</h3>
+      <p>4 поста + 4 коротких видео в неделю на твоих каналах. Готово к публикации, под твой стиль и ToV.</p>
+    </div>
+
+    <div class="service">
+      <div class="service-emoji">💬</div>
+      <h3>AI-автоответчик в чате</h3>
+      <p>Отвечает студентам 24/7 по базе знаний курса. Освобождает тебя от 50+ повторяющихся вопросов в неделю.</p>
+    </div>
+
+    <div class="service">
+      <div class="service-emoji">📊</div>
+      <h3>AI-аналитика комьюнити</h3>
+      <p>Еженедельный отчёт: кто активен, кто уходит, что цепляет. Принимаешь решения по данным, не интуиции.</p>
+    </div>
+
+    <div class="service">
+      <div class="service-emoji">🛠</div>
+      <h3>Автоматизация рутин</h3>
+      <p>Оплаты, доступы к урокам, напоминания о домашке, certificates. Меньше ручной работы — больше времени на главное.</p>
+    </div>
+  </section>
+
+  <!-- CASES -->
+  <section>
+    <h2>Кейсы</h2>
+
+    <div class="case">
+      <div class="case-tag">Personal</div>
+      <h3>Learning Bot — мой собственный AI-помощник</h3>
+      <p>Автоматизировал свою учёбу — бот шлёт план дня, дайджесты подписок, отчёты. Сэкономил 30 минут в день.</p>
+    </div>
+
+    <div class="case">
+      <div class="case-tag">In-house · Quanta Tech</div>
+      <h3>Community Operations для AI-стартапа</h3>
+      <p>Год внутри Quanta Tech как Community & Growth: настройка community-инфраструктуры, support-агентов, content-генерации для AI-платформы.</p>
+    </div>
+
+    <div class="case">
+      <div class="case-tag">Открытый слот</div>
+      <h3>Будь третьим — скидка 20%</h3>
+      <p>Беру 3 первых клиента под кейсы. Скидка на Setup и retainer первые 3 месяца взамен на разрешение использовать как case study.</p>
+    </div>
+  </section>
+
+  <!-- PRICING -->
+  <section>
+    <h2>Цена</h2>
+    <div class="price-grid">
+
+      <div class="price-card">
+        <div class="price-label">Setup · один раз</div>
+        <div class="price-amount">€2,500</div>
+        <div class="price-sub">Полная настройка системы за 1-2 недели</div>
+        <ul>
+          <li>Все 5 модулей выше</li>
+          <li>Под твою базу знаний</li>
+          <li>Под твой стиль и ToV</li>
+          <li>50% upfront / 50% после сдачи</li>
+        </ul>
+      </div>
+
+      <div class="price-card">
+        <div class="price-label">Retainer · ежемесячно</div>
+        <div class="price-amount">€1,800<span style="font-size:18px;color:var(--muted)">/мес</span></div>
+        <div class="price-sub">Поддержка + развитие систем</div>
+        <ul>
+          <li>Поддержка всех систем 24/7</li>
+          <li>2-3 новые автоматизации/мес</li>
+          <li>Еженедельный созвон 30 мин</li>
+          <li>Месячный отчёт с метриками</li>
+        </ul>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <section class="final">
+    <h2>Готов вернуть себе 20+ часов в неделю?</h2>
+    <p>30 минут — обсудим что у тебя работает, что болит, и что можно автоматизировать.<br>Без обязательств.</p>
+    <a class="cta" href="https://cal.com/andrei" target="_blank">Записаться на разбор →</a>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>Andrei · Madrid, Spain · <a href="mailto:ac@quanta-tech.org">ac@quanta-tech.org</a></p>
+    <p style="margin-top:8px; font-size:12px;">Языки работы: Русский · Українська · English</p>
+  </footer>
+
+</div>
+</body>
+</html>
